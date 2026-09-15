@@ -54,35 +54,37 @@ function ChapterPage() {
           <Link to="/matieres/$subjectId" params={{ subjectId: subject.id }} className="text-xs font-medium text-ink-subtle hover:text-ink">
             ← {subject.short}
           </Link>
-          <p className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-ink-subtle">Dans ce chapitre</p>
-          <ul className="mt-2 space-y-1">
-            {headings.map((h) => (
-              <li key={h.id ?? h.text}>
-                <a href={h.id ? `#${h.id}` : undefined} className="block rounded-sm px-2 py-1 text-xs text-ink-muted hover:bg-surface hover:text-ink">
-                  {h.text.replace(/^Chapitre \d+ — /, "")}
-                </a>
-              </li>
-            ))}
-          </ul>
           <div className="mt-6 space-y-1">
             {subject.chapters.map((c, i) => {
               const ok = isChapterDone(completed, subject.id, c.id);
               const current = c.id === chapter.id;
               return (
-                <Link
-                  key={c.id}
-                  to="/matieres/$subjectId/$chapterId"
-                  params={{ subjectId: subject.id, chapterId: c.id }}
-                  className={cn(
-                    "flex items-center gap-2 rounded-md px-2 py-1.5 text-xs",
-                    current ? "bg-accent-soft font-semibold text-accent" : "text-ink-muted hover:bg-surface",
+                <div key={c.id}>
+                  <Link
+                    to="/matieres/$subjectId/$chapterId"
+                    params={{ subjectId: subject.id, chapterId: c.id }}
+                    className={cn(
+                      "flex items-center gap-2 rounded-md px-2 py-1.5 text-xs",
+                      current ? "bg-accent-soft font-semibold text-accent" : "text-ink-muted hover:bg-surface",
+                    )}
+                  >
+                    <span className={cn("size-1.5 rounded-full shrink-0", ok ? "bg-stats" : current ? "bg-accent" : "bg-line-strong")} />
+                    <span className="truncate">
+                      {i + 1}. {c.title.replace(/^Chapitre \d+ — /, "")}
+                    </span>
+                  </Link>
+                  {current && headings.length > 0 && (
+                    <ul className="my-1 ml-4 space-y-1 border-l-2 border-line pl-2">
+                      {headings.map((h) => (
+                        <li key={h.id ?? h.text}>
+                          <a href={h.id ? `#${h.id}` : undefined} className="block rounded-sm px-2 py-1 text-[11px] text-ink-muted hover:text-ink">
+                            {h.text.replace(/^Chapitre \d+ — /, "")}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
                   )}
-                >
-                  <span className={cn("size-1.5 rounded-full", ok ? "bg-stats" : current ? "bg-accent" : "bg-line-strong")} />
-                  <span className="truncate">
-                    {i + 1}. {c.title.replace(/^Chapitre \d+ — /, "")}
-                  </span>
-                </Link>
+                </div>
               );
             })}
           </div>
