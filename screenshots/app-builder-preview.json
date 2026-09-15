@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Master SDA",
+      "hasCanvas": false,
+      "bodyTextLen": 1028,
+      "bodyTextHash": "7aa5968aa2eb6a4071f360ef35ac74fabd14cbdeaf3df8ba757877169c542053",
+      "bodyTextPrefix": "Master SDA AU 2026-2027 Accueil Matières Planning Quiz & Exercic",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Master SDA",
+      "hasCanvas": false,
+      "bodyTextLen": 837,
+      "bodyTextHash": "5bf908738dc182e20c1c9142eebdb73ee4b0d805eed5e3ed0086d7f60f20eab5",
+      "bodyTextPrefix": "Rechercher une matière, un chapitre, un exercice… C CONCOURS SDA",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
