@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build / Vercel
+.vercel/
+dist/
+.output/
+.nitro/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.DS_Store
+*.log
+.idea/
+.vscode/
+
+# Misc
+coverage/
+*.tsbuildinfo
